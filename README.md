@@ -19,3 +19,9 @@ Since most gaming platforms don’t support MetaMask, the application must gener
 This tool enables game developers to incorporate asymmetric key-based actions, where one key (a "coaster") serves as a letter marque for another key. 
 
 This pattern was developed for a service I am building called **APInt IO**. The term "coaster" is used instead of "letter marque" because the concept can be visualized as writing two signatures on a coaster, effectively proving one key’s authority to delegate to another.
+
+Required: 
+- https://github.com/EloiStree/OpenUPM_pBit4096B58Pkcs1SHA256
+
+Python version:
+- https://github.com/EloiStree/pypi_pBit4096B58Pkcs1SHA256
