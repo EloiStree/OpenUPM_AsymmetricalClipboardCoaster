@@ -1,7 +1,7 @@
 {
   "name": "be.elab.asymsigner",
   "displayName": "Assymetic Meta Mask Coaster Signer",
-  "version": "2025.1.1540449",
+  "version": "2025.1.16",
   "unity": "2018.1",
   "unityRelease": "",
   "description": "This code provides an interface designed to abstract the asymmetric signature process and act as a bridge to a MetaMask Ethereum account for use with the server.",
