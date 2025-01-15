@@ -1,23 +1,26 @@
-
-{                                                                                
-  "name": "be.elab.asymsigner",                              
-  "displayName": "Assymetic Meta Mask Coaster Signer",                        
-  "version": "0.0.1",                         
-  "unity": "2018.1",                             
-  "unityRelease": "",                             
-  "description": "This code provides an interface designed to abstract the asymmetric signature process and act as a bridge to a MetaMask Ethereum account for use with the server.",                         
-  "keywords": ["Script","Tool"],                       
-  "dependencies":{},     
-  "relatedPackages":{},     
-  "samples" : [],     
-  "author" : {
-"name":"Eloi Stree",
-"mail":"",
-"url":""},     
-  "repository":{
-"type":"Git",
-"url":"https://github.com/EloiStree/2025_01_01_ClipboardableAssymentricMetaCoasterUnity3D.git",
-"footprint":"",
-"revision":""},     
-  "category": "Script"                   
-} 
+{
+  "name": "be.elab.asymsigner",
+  "displayName": "Assymetic Meta Mask Coaster Signer",
+  "version": "2025.1.1540449",
+  "unity": "2018.1",
+  "unityRelease": "",
+  "description": "This code provides an interface designed to abstract the asymmetric signature process and act as a bridge to a MetaMask Ethereum account for use with the server.",
+  "keywords": ["Script", "Tool"],
+  "relatedPackages": {},
+  "samples": [],
+  "author": {
+    "name": "Eloi Stree",
+    "mail": "",
+    "url": ""
+  },
+  "repository": {
+    "type": "Git",
+    "url": "https://github.com/EloiStree/2025_01_01_ClipboardableAssymentricMetaCoasterUnity3D.git",
+    "footprint": "",
+    "revision": ""
+  },
+  "category": "Script",
+  "dependencies": {
+    "be.elab.pbit4096b58pkcs1sha256": "1.0.0"
+  }
+}
