@@ -21,6 +21,6 @@
   },
   "category": "Script",
   "dependencies": {
-    "be.elab.pbit4096b58pkcs1sha256": "1.0.0"
+    "be.elab.pbit4096b58pkcs1sha256": "2025.1.16"
   }
 }
