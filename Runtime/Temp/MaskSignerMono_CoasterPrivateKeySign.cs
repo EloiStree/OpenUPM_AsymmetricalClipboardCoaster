@@ -11,16 +11,22 @@ public class MaskSignerMono_CoasterPrivateKeySign : MaskSignerMono_AbstractClipb
     {
         if (m_marqueLetterCliboardText!="")
         {
-            string[] splitToken = m_marqueLetterCliboardText.Split('|');
-            if (splitToken.Length>=1)
-            m_markLetter.m_coasterAddress = splitToken[0];
-            if (splitToken.Length>=2)
-            m_markLetter.m_masterAddress = splitToken[1];
-            if (splitToken.Length>=3)
-            m_markLetter.m_signedMarqueLetter = splitToken[2];
-            m_masterToCoasterId = m_markLetter.m_masterAddress + ">"+ m_markLetter.m_coasterAddress;
-            m_marqueLetterCliboardText= "";
+            string letter = m_marqueLetterCliboardText;
+            SetLetterMarque(letter);
         }
+    }
+
+    private void SetLetterMarque(string letter)
+    {
+        string[] splitToken = letter.Split('|');
+        if (splitToken.Length >= 1)
+            m_markLetter.m_coasterAddress = splitToken[0];
+        if (splitToken.Length >= 2)
+            m_markLetter.m_masterAddress = splitToken[1];
+        if (splitToken.Length >= 3)
+            m_markLetter.m_signedMarqueLetter = splitToken[2];
+        m_masterToCoasterId = m_markLetter.m_masterAddress + ">" + m_markLetter.m_coasterAddress;
+        m_marqueLetterCliboardText = "";
     }
 
     public override void GetClipboardSignedMessage(string message, out string coasterSignedMessage)
