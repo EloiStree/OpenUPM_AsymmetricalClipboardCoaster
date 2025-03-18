@@ -17,9 +17,32 @@ public class MaskSignerMono_PrivateKeyHolderRsa4096 : MaskSignerMono_PrivateKeyH
 
     }
 
-    public void SetFromPrivateKey(string privateKey) {
+    [ContextMenu("Reload From Inspector XML")]
+    public void ReloadFromInspectorXml()
+    {
 
-        Bit4096B58Pkcs1SHA256.CreateFromPrivateKeyAsBase58(
+        SetFromPrivateKeyXmlToB58(keyPair.m_privateKeyOriginal);
+    }
+    [ContextMenu("Reload From Inspector B58")]
+    public void ReloadFromInspectorB58()
+    {
+
+        SetFromRsaB58ToXML(keyPair.m_privateKeyB58);
+    }
+
+    public void SetFromRsaB58ToXML(string privateKeyXml)
+    {
+        Bit4096B58Pkcs1SHA256.CreateFromBase58PrivateKeyFormat(
+            keyPair.m_privateKeyB58,
+            out keyPair.m_publicAddressOriginal,
+            out keyPair.m_privateKeyOriginal,
+            out keyPair.m_publicKeyB58);
+
+    }
+
+    public void SetFromPrivateKeyXmlToB58(string privateKey) {
+
+        Bit4096B58Pkcs1SHA256.CreateFromPrivateKeyXmlToBase58(
             privateKey, 
             out string publicKey,
             out string privateKeyAsB58,
