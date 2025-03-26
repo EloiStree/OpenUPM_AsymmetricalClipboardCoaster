@@ -2,7 +2,7 @@
 
 
 [System.Serializable]
-public struct STRUCT_AssymetricPrivateKey : IAsymmetricMaskPrivateKeyHolderGet
+public struct STRUCT_AssymetricPrivateKey : IAsymmetricPrivateKeyHolderGet
 {
     [TextArea(0, 10)]
     public string m_publicAddressOriginal;

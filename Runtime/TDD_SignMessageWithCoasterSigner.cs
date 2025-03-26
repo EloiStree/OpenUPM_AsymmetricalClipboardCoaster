@@ -6,7 +6,7 @@ public class TDD_SignMessageWithCoasterSigner : MonoBehaviour
 {
 
     public string m_message= "Hello World"; 
-    public MaskSignerMono_AbstractClipboardSigner m_signer;
+    public AsymSignerMono_AbstractClipboardSigner m_signer;
 
     [TextArea(0,15)]
     public string m_signatureClipboardable;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class TDD_Rsa4096SignAndVrify : MonoBehaviour
 {
 
-    public MaskSignerMono_SignerRsa4096 m_privateKey;
+    public AsymSignerMono_SignerRsa4096 m_privateKey;
     public string m_message = "Hello, World!";
 
     public string m_signedCliboard;
@@ -31,7 +31,7 @@ public class TDD_Rsa4096SignAndVrify : MonoBehaviour
             out  m_signatureB58
             );
 
-        m_privateKey.GetLinkedKeyPair(out IAsymmetricMaskPrivateKeyHolderGet keyPair);
+        m_privateKey.GetLinkedKeyPair(out IAsymmetricPrivateKeyHolderGet keyPair);
         m_isVerified = DefaultRsaCreateSignVerify_Bit4096_B58_Pkcs1_SHA256.
             VerifySignatureB58(m_signedMessage, m_signatureB58, keyPair);
 

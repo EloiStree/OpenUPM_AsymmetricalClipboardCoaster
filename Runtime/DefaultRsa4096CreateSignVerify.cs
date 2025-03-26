@@ -17,10 +17,10 @@ using UnityEngine;
 /// </summary>
 /// 
 ///https://raskeyconverter.azurewebsites.net/XmlToPem?handler=ConvertPEM
-public class DefaultRsaCreateSignVerify_Bit4096_B58_Pkcs1_SHA256 : IAssymentricMaskCreateSignVerify
+public class DefaultRsaCreateSignVerify_Bit4096_B58_Pkcs1_SHA256 : IAssymentricCreateSignVerify
 {
     [System.Serializable]
-    public class RsaKeyPairHolder : IAsymmetricMaskPrivateKeyHolderGet
+    public class RsaKeyPairHolder : IAsymmetricPrivateKeyHolderGet
     {
         public string m_publicAddressAsB58;
         private string m_privateKeyAsB58;
@@ -92,7 +92,7 @@ public class DefaultRsaCreateSignVerify_Bit4096_B58_Pkcs1_SHA256 : IAssymentricM
         Bit4096B58Pkcs1SHA256.CreateXmlRsa4096PrivateKey(out privateKey);
     }
 
-    public void CreatePrivateKey(out IAsymmetricMaskPrivateKeyHolderGet privateKeyHolder)
+    public void CreatePrivateKey(out IAsymmetricPrivateKeyHolderGet privateKeyHolder)
     {
         Bit4096B58Pkcs1SHA256.CreatePrivateKeyAsBase58(
             out string privateKey,
@@ -183,7 +183,7 @@ public class DefaultRsaCreateSignVerify_Bit4096_B58_Pkcs1_SHA256 : IAssymentricM
 
     }
 
-    public void SignMessageAsClipboardable(IAsymmetricMaskPrivateKeyHolderGet privateKeyHolder
+    public void SignMessageAsClipboardable(IAsymmetricPrivateKeyHolderGet privateKeyHolder
         , string message, out string clipboardableSignedMessage)
     {
        
@@ -191,7 +191,7 @@ public class DefaultRsaCreateSignVerify_Bit4096_B58_Pkcs1_SHA256 : IAssymentricM
         clipboardableSignedMessage= $"{message}|{privateKeyHolder.GetPublicAddressInB58UrlFormat()}|{signB58}";
     }
 
-    public static void GetXmlKeyPrivateFromB58(IAsymmetricMaskPrivateKeyHolderGet key, out string xmlKeyPrivate, out string xmlKeyPublic)
+    public static void GetXmlKeyPrivateFromB58(IAsymmetricPrivateKeyHolderGet key, out string xmlKeyPrivate, out string xmlKeyPublic)
     {
         key.GetPublicAddressInOrignalFormat(out xmlKeyPublic);
         key.GetPrivateKeyInOrignalFormat(out xmlKeyPrivate);
@@ -199,13 +199,13 @@ public class DefaultRsaCreateSignVerify_Bit4096_B58_Pkcs1_SHA256 : IAssymentricM
 
 
 
-    public static string SignData(in string text, in IAsymmetricMaskPrivateKeyHolderGet keyPair)
+    public static string SignData(in string text, in IAsymmetricPrivateKeyHolderGet keyPair)
     {
         Bit4096B58Pkcs1SHA256.SignTextUtf8ToTextBase58(text, keyPair.GetPrivateKeyInOrignalFormat(), out string signatureBase58);
         return signatureBase58;
     }
 
-    public static byte[] SignData(in byte[] data, in IAsymmetricMaskPrivateKeyHolderGet keyPair)
+    public static byte[] SignData(in byte[] data, in IAsymmetricPrivateKeyHolderGet keyPair)
     {
         keyPair.GetPrivateKeyInOrignalFormat(out string xmlPrivate);
         return SignData(data, xmlPrivate);
@@ -217,7 +217,7 @@ public class DefaultRsaCreateSignVerify_Bit4096_B58_Pkcs1_SHA256 : IAssymentricM
         return signature;
     }
 
-    public static bool VerifySignatureB58(in string message, in string b58Signature, in IAsymmetricMaskPrivateKeyHolderGet keyPair)
+    public static bool VerifySignatureB58(in string message, in string b58Signature, in IAsymmetricPrivateKeyHolderGet keyPair)
     {
         return Bit4096B58Pkcs1SHA256
             .VerifySignatureFromB58Signature(
@@ -227,7 +227,7 @@ public class DefaultRsaCreateSignVerify_Bit4096_B58_Pkcs1_SHA256 : IAssymentricM
             );
     }
     
-    public static bool VerifySignature(in byte[] data, in byte[] signature, IAsymmetricMaskPrivateKeyHolderGet keyPair)
+    public static bool VerifySignature(in byte[] data, in byte[] signature, IAsymmetricPrivateKeyHolderGet keyPair)
     {
         
         return Bit4096B58Pkcs1SHA256
