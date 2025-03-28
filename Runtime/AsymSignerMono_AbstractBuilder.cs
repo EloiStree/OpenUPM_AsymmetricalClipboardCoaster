@@ -5,6 +5,6 @@ using UnityEngine;
 /// </summary>
 public abstract class AsymSignerMono_AbstractBuilder : MonoBehaviour
 {
-    public abstract IAsymSignerCliboardable BuildSigner();
-    public abstract void BuildSigner(out IAsymSignerCliboardable signer);
+    public abstract IAsymSignerClipboardable BuildSigner();
+    public abstract void BuildSigner(out IAsymSignerClipboardable signer);
 }

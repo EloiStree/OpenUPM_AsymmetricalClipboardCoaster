@@ -1,6 +1,6 @@
 ﻿public class AsymSignerMono_Rsa4096Builder : AsymSignerMono_AbstractBuilder
 {
-    public class Signer : IAsymSignerCliboardable
+    public class Signer : IAsymSignerClipboardable
     { 
       public IAsymmetricPrivateKeyHolderGet m_privateKey;
 
@@ -13,13 +13,13 @@
             AsymSignerRsa4096Utility.SignerAsClipboardable(m_privateKey, message, out clipboardableSignedMessage);
         }
     }
-    public override IAsymSignerCliboardable BuildSigner()
+    public override IAsymSignerClipboardable BuildSigner()
     {
-        return (IAsymSignerCliboardable)new Signer();
+        return (IAsymSignerClipboardable)new Signer();
     }
 
-    public override void BuildSigner(out IAsymSignerCliboardable signer)
+    public override void BuildSigner(out IAsymSignerClipboardable signer)
     {
-        signer = (IAsymSignerCliboardable)new Signer();
+        signer = (IAsymSignerClipboardable)new Signer();
     }
 }
